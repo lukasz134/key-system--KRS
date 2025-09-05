@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>0rbzz - Protected Video</title>
+  <style>
+    body {
+      background: #222;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .card {
+      background: #333;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #1db954;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1ed760;
+    }
+    .hidden {
+      display: none;
+    }
+    #error {
+      color: #f33;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+    #secretPhrase {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ffcc00;
+    }
+    iframe {
+      margin-top: 30px;
+      width: 100%;
+      height: 315px;
+      border-radius: 8px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="loginCard">
+    <h2>Enter the Key to Unlock</h2>
+    <input type="password" id="keyInput" placeholder="Enter key here" />
+    <button onclick="checkKey()">Unlock</button>
+    <p id="error" class="hidden">Incorrect key. Try again.</p>
+  </div>
+
+  <div class="card hidden" id="videoCard">
+    <h2>✅ SYSTEM ACTIVATED</h2>
+    <p id="secretPhrase">VITHEBEST</p>
+    <iframe
+      src="https://www.youtube.com/embed/6wHb0Gt1OOY?autoplay=1&controls=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="Wong by C00LKIDD"
+    ></iframe>
+  </div>
+
+  <script>
+    const correctKey = "88690";
+
+    function checkKey() {
+      const userKey = document.getElementById("keyInput").value;
+      if (userKey === correctKey) {
+        document.getElementById("loginCard").classList.add("hidden");
+        document.getElementById("videoCard").classList.remove("hidden");
+      } else {
+        const err = document.getElementById("error");
+        err.textContent = "❌ Incorrect key. Access denied.";
+        err.classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
